@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dev
+      changes:
+        - createTable:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DECIMAL(19, 2)
+                  defaultValueNumeric: 0
+                  constraints:
+                    nullable: false
+        - insert:
+            tableName: wallet
+            columns:
+              - column: {name: id, value: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"}
+              - column: {name: balance, valueNumeric: 1000.00}
